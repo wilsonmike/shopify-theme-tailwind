@@ -81,8 +81,24 @@
               <div>
                 <h1 class="text-lg text-gray-500">{{ section.settings.mobile_menu_title }}</h1>
               </div>
+              <div class="-mr-2">
+                <button x-on:click="mobileMenuOpen = false" type="button" class="bg-white rounded-md p-2 text-gray-500">
+                  {% render 'icon-close' %}
+                </button>
+              </div>
             </div>
             <!-- nva links for mobile header -->
+            <div class="pt-3">
+              <nav class="grid gap-y-7">
+                {% for link in section.settings.menu.links %}
+                {% if link.links != blank %}
+                {% else %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endif %}
+                {% endfor %}
+              </nav>
+            </div>
+            <!-- nva link end-->
           </div>
         </div>
       </div>
